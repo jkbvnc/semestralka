@@ -1,0 +1,8 @@
+{block content}
+    <h1 n:block="title">Hlavní stránka</h1>
+    <div class="new_category"><a n:href="Category:create" n:if="$user->loggedIn">Vytvořit novou kategorii</a></div>
+    <div n:foreach="$categories as $category" class="caterogy">
+        <h2><a n:href="Category:show $category->id">{$category->title}</a></h2>
+        <div>{$category->content}</div>
+    </div>
+{/block}

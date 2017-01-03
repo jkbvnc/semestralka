@@ -1,0 +1,12 @@
+{block content}
+    <div class="zpet"><p><a n:href="Category:show $post->category_id"> <- zpět do kategorie </a></p></div>
+    <h1 n:block="title">{$post->title}</h1>
+    <div class="post">{$post->content}</div>
+    <p><a n:href="edit $post->id" n:if="$user->loggedIn">Upravit dotaz</a></p>
+    <h2>Odpovědi:</h2>
+    <div n:foreach="$comments as $comment" class="comments">
+        <h3><a n:href="Comment:show $comment->id">{$comment->created_at}</a></h3>
+        <div class="postcontent">{$comment->content}</div>
+    </div>
+    <div class="new_comment"><a n:href="Comment:create $post->id">Odpovědět na dotaz</a></div>
+{/block}

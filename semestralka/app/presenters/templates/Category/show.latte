@@ -1,0 +1,13 @@
+{block content}
+    <div class="zpet"><p><a n:href="Homepage:default"> <- zpět na hlavní stránku </a></p></div>
+    <div class="new_post"><a n:href="Post:create $category->id">Vytvořit novou diskuzi</a></div>
+    <h1 n:block="title">{$category->title}</h1>
+    <div class="category">{$category->content}</div>
+    <p><a n:href="edit $category->id" n:if="$user->loggedIn">Upravit kategorii</a></p>
+    <h2>Diskuze</h2>
+    <div n:foreach="$posts as $post" class="posts">
+        <h3><a n:href="Post:show $post->id">{$post->title}</a></h3>
+        <div class="postcontent">{$post->content}</div>
+    </div>
+{/block}
+

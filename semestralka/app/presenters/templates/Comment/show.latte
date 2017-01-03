@@ -1,0 +1,6 @@
+{block content}
+    <div class="zpet"><p><a n:href="Post:show $comment->post_id"> <- zpět na dotaz </a></p></div>
+    <h1 n:block="title">{$comment->created_at}</h1>
+    <div class="post">{$comment->content}</div>
+    <p><a n:href="edit $comment->id" n:if="$user->loggedIn">Upravit odpověď</a></p>
+{/block}
